@@ -59,6 +59,10 @@ Modular Terraform design ensures reproducible and scalable infrastructure.
 
 ## 🌍 Live Access
 Access the app through ALB or CloudFront domain.
+## 🙌 Acknowledgments
+
+- **Romaisa** – React Frontend Design & UI contribution  
+  Thanks for the valuable help in designing the React interface for this project.
 
 <img width="1600" height="817" alt="image" src="https://github.com/user-attachments/assets/05c366d4-1a90-4a85-9a27-b045b9d05b42" />
 
