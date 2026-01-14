@@ -2,29 +2,26 @@ user_data = base64encode(<<-EOF
 #!/bin/bash
 set -e
 
-# تحديث
 dnf update -y
 
-# Docker
+
 dnf install -y docker
 systemctl enable docker
 systemctl start docker
 
-# صلاحيات
 usermod -aG docker ec2-user
 
-# استنى Docker
+# Docker
 sleep 10
 
-# شيل أي nginx لو موجود
+# nginx is tacke default port 80
 systemctl stop nginx || true
 systemctl disable nginx || true
 dnf remove -y nginx || true
 
-# شيل أي كونتينر قديم
+
 docker rm -f ez-store || true
 
-# شغل التطبيق
 docker pull eslamzain99/ez-store:latest
 docker run -d \
   --name ez-store \
