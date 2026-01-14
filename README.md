@@ -8,6 +8,9 @@ The application is deployed inside **Docker containers** running on **EC2 instan
 
 ---
 
+<img width="1472" height="704" alt="image" src="https://github.com/user-attachments/assets/fa235dce-1ceb-46eb-84ad-7eebd35a29da" />
+
+
 ## 🏗️ Architecture Overview
 User → CloudFront → Application Load Balancer → EC2 (Docker Containers)
 
@@ -43,6 +46,9 @@ docker pull eslamzain99/ez-store:latest
 ## 🛠️ Infrastructure as Code (Terraform)
 Modular Terraform design ensures reproducible and scalable infrastructure.
 
+<img width="826" height="221" alt="image" src="https://github.com/user-attachments/assets/adcaef36-b82c-4549-bced-8e5779817bbc" />
+
+
 ---
 
 ## 📊 Monitoring
@@ -53,6 +59,9 @@ Modular Terraform design ensures reproducible and scalable infrastructure.
 
 ## 🌍 Live Access
 Access the app through ALB or CloudFront domain.
+
+<img width="1600" height="817" alt="image" src="https://github.com/user-attachments/assets/05c366d4-1a90-4a85-9a27-b045b9d05b42" />
+
 
 ---
 
