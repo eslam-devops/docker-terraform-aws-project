@@ -9,6 +9,8 @@ The application is deployed inside **Docker containers** running on **EC2 instan
 ---
 
 <img width="1472" height="704" alt="image" src="https://github.com/user-attachments/assets/fa235dce-1ceb-46eb-84ad-7eebd35a29da" />
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/90eb7ab5-6ceb-44ca-8260-e6d8e1952334" />
+
 
 
 ## 🏗️ Architecture Overview
