@@ -1,5 +1,5 @@
 module "network" {
-  source = "../modules/network"
+  source = "./modules/network"
 
   name     = "blackcrow"
   vpc_cidr = "10.0.0.0/16"
@@ -41,17 +41,23 @@ module "network" {
       description = "EC2 Security Group"
 
       ingress = [
-        {
-          from_port = 80
-          to_port   = 80
-          protocol  = "tcp"
-          sg_refs   = ["alb"]
-        },
+        # {
+        #   from_port = 80
+        #   to_port   = 80
+        #   protocol  = "tcp"
+        #   sg_refs   = ["alb"]
+        # },
         {
           from_port   = 22
           to_port     = 22
           protocol    = "tcp"
           cidr_blocks = ["0.0.0.0/0"]
+        },
+        {
+          from_port = 9090
+          to_port   = 9090
+          protocol  = "tcp"
+          sg_refs   = ["alb"]
         }
       ]
 
@@ -68,7 +74,7 @@ module "network" {
 }
 
 module "iam" {
-  source = "../modules/iam_custom"
+  source = "./modules/iam_custom"
 
   roles = {
     ec2_role = {
@@ -87,7 +93,7 @@ module "iam" {
 
 }
 module "alb_asg" {
-  source = "../modules/alb_asg"
+  source = "./modules/alb_asg"
 
   name                      = "Eslamzain-web"
   vpc_id                    = module.network.vpc_id
@@ -96,6 +102,7 @@ module "alb_asg" {
   ec2_sg_id                 = module.network.security_group_ids["ec2"]
   iam_instance_profile_name = module.iam.instance_profiles["ec2_role"].name
   key_pair_name             = aws_key_pair.this.key_name
+
 }
 # user_data                 = file("${path.module}/user_data.sh")
 
@@ -151,14 +158,14 @@ data "aws_instances" "asg_instances" {
 }
 
 module "cloudwatch" {
-  source           = "../modules/cloudwatch"
+  source           = "./modules/cloudwatch"
   alb_arn          = module.alb_asg.alb_arn
   asg_name         = module.alb_asg.asg_name
   ec2_instance_ids = data.aws_instances.asg_instances.ids
 }
 
-module "cloudfront" {
-  source       = "../modules/cloudfront"
-  alb_dns_name = module.alb_asg.alb_dns_name
-  alb_zone_id  = module.alb_asg.alb_zone_id
-}
+# module "cloudfront" {
+#   source       = "../modules/cloudfront"
+#   alb_dns_name = module.alb_asg.alb_dns_name
+#   alb_zone_id  = module.alb_asg.alb_zone_id
+# }

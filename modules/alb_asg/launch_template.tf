@@ -65,22 +65,12 @@ systemctl start docker
 
 usermod -aG docker ec2-user
 
-# Docker
-sleep 10
-
-
-systemctl stop nginx || true
-systemctl disable nginx || true
-dnf remove -y nginx || true
-
-
-docker rm -f ez-store || true
-
+# Pull and run EZ Store container
 docker pull eslamzain99/ez-store:latest
 docker run -d \
   --name ez-store \
   --restart always \
-  -p 80:80 \
+  -p  9090:80 \
   eslamzain99/ez-store:latest
 
 echo "EZ Store is running"
