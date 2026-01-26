@@ -49,9 +49,12 @@ docker pull eslamzain99/ez-store:latest
 Modular Terraform design ensures reproducible and scalable infrastructure.
 
 <img width="826" height="221" alt="image" src="https://github.com/user-attachments/assets/adcaef36-b82c-4549-bced-8e5779817bbc" />
+![WhatsApp Image 2026-01-14 at 12 14 28 AM](https://github.com/user-attachments/assets/d7d0cad2-bce0-4548-a01e-dccea911b01d)
+<img width="1562" height="749" alt="image" src="https://github.com/user-attachments/assets/0df08cc4-d990-46cd-add7-d53b7a41c7ee" />
 
 
 ---
+
 
 ## 📊 Monitoring
 - CPU alarms
